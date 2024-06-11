@@ -36,8 +36,7 @@ public class Application {
                     isShouldExit = true;
                     break;
                 case "4":
-                    //TODO
-                    System.out.println("display the secret sales report");
+                    vendingMachine.getSalesReport();
                 default:
                     System.out.println("invalid Selection please try again");// maybe some error handling that could be done
             }
