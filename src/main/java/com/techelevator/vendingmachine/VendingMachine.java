@@ -8,14 +8,20 @@ public class VendingMachine {
     // TODO create variables for other classes such as salesReport PurchaseManger and create instance in the constructor
     private double balance = 0;
     private UserInterface ui;
+    private SalesReport salesReport;
 
     //CONSTRUCTOR
     //TODO Create and add new instances to constructor
     public VendingMachine(Scanner scanner){
         this.ui = new UserInterface(scanner);
+        this.salesReport = new SalesReport(); // TODO Sales report will need to be passed to the purchase manager in order to add product to salesReport upon succesful purchase
     }
 
 
+    //SALES REPORT METHOD DELEGATION
+    public void getSalesReport(){
+        salesReport.getSalesReport();
+    }
     //UI METHOD DELEGATIONS
     public String displayMainMenu(){
         return ui.displayMainMenu();
