@@ -18,6 +18,14 @@ public class SalesReport {
         for(Map.Entry<String, Integer> entry : productsSold.entrySet()){
             System.out.println("Product name "+entry.getKey() + " | " + "Quantity: " + entry.getValue());
         }
-        System.out.println("*** TOTAL SALES***" + currency.format(totalSales));
+        System.out.println("***TOTAL SALES***" + " | " +currency.format(totalSales));
+    }
+
+    public Map<String, Integer> getProductsSold() {
+        return productsSold;
+    }
+
+    public double getTotalSales() {
+        return totalSales;
     }
 }
