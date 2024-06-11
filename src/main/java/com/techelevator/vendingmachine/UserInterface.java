@@ -17,7 +17,7 @@ public class UserInterface {
         System.out.println("(1) Display Vending Machine Items");
         System.out.println("(2) Purchase");
         System.out.println("(3) Exit");
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     public String displayPurchaseMenu(double balance) {
