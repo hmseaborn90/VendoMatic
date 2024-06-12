@@ -14,21 +14,25 @@ public class ChangeDispenser {
     private int dimeCount;
     private int nickelCount;
 
-    public String giveChange(double balance, double amountSpent) {
-        double change = balance - amountSpent;
-        double coinChange = change;
+    public String giveChange(double balance) {
+        double coinChange = balance;
+        double changeReturned = 0;
         quarterCount = (int) (coinChange / QUARTER);
         coinChange -= quarterCount * QUARTER;
+        changeReturned += quarterCount * QUARTER;
         dimeCount = (int) (coinChange / DIME);
         coinChange -= dimeCount * DIME;
+        changeReturned += dimeCount * DIME;
         nickelCount = (int) (coinChange / NICKEL);
+        changeReturned += nickelCount * NICKEL;
+
 
         NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-        change = Math.round(change * 100) / 100.0;
+        changeReturned = Math.round(balance * 100) / 100.0;
 
-        Logger.log("GIVE CHANGE: $" + change + " $" + balance);
+        Logger.log("GIVE CHANGE: $" + changeReturned + " $" + balance);
 
-        return "Change returned: " + moneyFormat.format(change) + "\n" +
+        return "Change returned: " + moneyFormat.format(changeReturned) + "\n" +
                 "Quarters: " + quarterCount + "\n" +
                 "Dimes: " + dimeCount + "\n" +
                 "Nickels: " + nickelCount;
