@@ -9,10 +9,9 @@ public class TestChangeDispenser {
 
     @Test
     public void giveChangeTest() {
-        double balance = 10.00;
-        double cost = 0.85;
+        double balance = 9.15;
 
-        String changeReport = CDtest.giveChange(balance, cost);
+        String changeReport = CDtest.giveChange(balance);
 
         Assert.assertEquals("Change returned: $9.15\n" +
                 "Quarters: 36\n" +
