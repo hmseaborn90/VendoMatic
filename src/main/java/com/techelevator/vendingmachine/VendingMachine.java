@@ -9,12 +9,14 @@ public class VendingMachine {
     private double balance = 0;
     private UserInterface ui;
     private SalesReport salesReport;
+    private ChangeDispenser changeDispenser;
 
     //CONSTRUCTOR
     //TODO Create and add new instances to constructor
     public VendingMachine(Scanner scanner){
         this.ui = new UserInterface(scanner);
         this.salesReport = new SalesReport(); // TODO Sales report will need to be passed to the purchase manager in order to add product to salesReport upon succesful purchase
+        this.changeDispenser = new ChangeDispenser();
     }
 
 
@@ -50,5 +52,10 @@ public class VendingMachine {
     }
     public double getBalance() {
         return balance;
+    }
+
+    public void giveChange() {
+        displayMessage(changeDispenser.giveChange(balance));
+        balance = 0;
     }
 }
