@@ -1,5 +1,6 @@
 package com.techelevator.vendingmachine;
 
+import com.techelevator.util.ConsoleColors;
 import com.techelevator.util.Logger;
 
 import java.text.NumberFormat;
@@ -32,10 +33,10 @@ public class ChangeDispenser {
 
         Logger.log("GIVE CHANGE: $" + changeReturned + " $" + balance);
 
-        return "Change returned: " + moneyFormat.format(changeReturned) + "\n" +
-                "Quarters: " + quarterCount + "\n" +
-                "Dimes: " + dimeCount + "\n" +
-                "Nickels: " + nickelCount;
+        return ConsoleColors.GREEN + "      Change returned: " + moneyFormat.format(changeReturned) + "\n" +
+                "      Quarters: " + quarterCount + "\n" +
+                "      Dimes: " + dimeCount + "\n" +
+                "      Nickels: " + nickelCount + ConsoleColors.RESET;
     }
 
 

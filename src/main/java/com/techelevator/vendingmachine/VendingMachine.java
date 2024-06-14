@@ -33,6 +33,7 @@ public class VendingMachine {
     }
     public String promptUser(String message){
         return ui.promptUser(message);
+
     }
 
     public void displayCurrentBalance() {
@@ -49,6 +50,7 @@ public class VendingMachine {
     //BALANCE ALTERING METHODS
     public void feedMoney(double amountFed) {
         balance += amountFed;
+        ui.printUnderline(50);
     }
     public double getBalance() {
         return balance;
@@ -57,5 +59,7 @@ public class VendingMachine {
     public void giveChange() {
         displayMessage(changeDispenser.giveChange(balance));
         balance = 0;
+        ui.printUnderline(50);
+
     }
 }
