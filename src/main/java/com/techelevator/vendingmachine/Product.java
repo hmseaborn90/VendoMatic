@@ -43,5 +43,9 @@ public class Product {
     public void setProductType(String productType) {
         this.productType = productType;
     }
+    @Override
+    public String toString(){
+        return "This is a generic type " + productType;
+    }
 
 }
