@@ -24,21 +24,21 @@ public class Application {
 
             switch (userChoice) {
                 case "1":
-                    System.out.println("will display inventory items here");
+                    vendingMachine.displayMessage("will display inventory items here");
                     break;
                 case "2":
                     handlePurchaseMenu(vendingMachine);
-                    System.out.println("handle the purchaseing of items here");
+                    vendingMachine.displayMessage("handle the purchasing of items here");
                     break;
                 case "3":
-                    System.out.println("display message that your exiting vending machine application");
+                    vendingMachine.displayMessage("display message that your exiting vending machine application");
                     // set boolean to true to exit the loop and exit the program may be a better way to handle exiting program
                     isShouldExit = true;
                     break;
                 case "4":
                     vendingMachine.getSalesReport();
                 default:
-                    System.out.println("invalid Selection please try again");// maybe some error handling that could be done
+                    vendingMachine.displayErrorMsg("invalid Selection please try again");// maybe some error handling that could be done
             }
         }
         scanner.close();
@@ -50,7 +50,7 @@ public class Application {
 
         while (!isFinished) {
             //TODO display inventory
-            System.out.println("display inventory");
+            vendingMachine.displayMessage("display inventory");
             String purchaseMenuChoice = vendingMachine.displayPurchaseMenu();
             switch (purchaseMenuChoice) {
                 case "1":
@@ -63,7 +63,7 @@ public class Application {
                     break;
                 case "3":
                     //TODO
-                    vendingMachine.displayMessage("handle returning change feature in the works");
+                    vendingMachine.giveChange();
                     isFinished = true;
                     break;
                 default:
