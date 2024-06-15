@@ -65,11 +65,10 @@ public class Application {
                     break;
                 case "2":
                     //TODO
-                    String productSlot = vendingMachine.promptUser("Please choose slot location");
+                    String productSlot = vendingMachine.promptUser("Please choose slot location: ");
                     vendingMachine.purchaseProduct(productSlot.toUpperCase());
                     break;
                 case "3":
-                    //TODO
                     vendingMachine.giveChange();
                     isFinished = true;
                     break;
@@ -83,29 +82,34 @@ public class Application {
 
     private static void handleMoneyInput(VendingMachine vendingMachine) {
         while (true) {
-
             try {
-                double amount = Double.parseDouble(vendingMachine.promptUser("Enter the amount of money to feed: "));
+                String userInput = vendingMachine.promptUser("Enter the amount of money to feed: ");
+                int amount = Integer.parseInt(userInput);
 
-                if (amount < 1.00) {
-                    vendingMachine.displayErrorMsg("Sorry we can only accept whole dollars at this time please insert acceptable amount");
+                if (isValidAmount(amount)) {
+                    vendingMachine.feedMoney(amount);
+                    vendingMachine.displayCurrentBalance();
+
+                    String logMessage = String.format("Feed Money: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
+                    Logger.log(logMessage);
+                } else {
+                    vendingMachine.displayErrorMsg("\n" + "Sorry, we can only accept valid US currency not sure where you got that " + amount + " dollar bill from but it is probably fake Please insert valid US currency");
                     continue;
                 }
-                vendingMachine.feedMoney(amount);
-                vendingMachine.displayCurrentBalance();
 
-                String logMessage = String.format("Feed Money: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
-                Logger.log(logMessage);
             } catch (NumberFormatException e) {
-//                throw new NumberFormatException("Invalid input please insert dollar amount");
-                vendingMachine.displayErrorMsg("Invalid input please insert dollar amount");
+                vendingMachine.displayErrorMsg("Invalid input sorry we only accept bills at this time insert a valid whole dollar amount.");
                 continue;
             }
-            String moreMoneyChoice = vendingMachine.promptUser("Do you want to add more money? (Y/N)");
+
+            String moreMoneyChoice = vendingMachine.promptUser("Do you want to add more money? (Y/N): ");
             if (!moreMoneyChoice.equalsIgnoreCase("Y")) {
                 break;
             }
-
         }
+    }
+
+    private static boolean isValidAmount(int amount) {
+        return amount == 1 || amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100;
     }
 }

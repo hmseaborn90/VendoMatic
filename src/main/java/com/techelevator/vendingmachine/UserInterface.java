@@ -25,7 +25,7 @@ public class UserInterface {
         for(Map.Entry<Product, Integer> entry : sortedProducts.entrySet()){
             Product product = entry.getKey();
             int quantity = entry.getValue();
-            System.out.println(ConsoleColors.YELLOW + product.getSlotLocation() + " | " + product.getProductName() + " | " + (quantity == 0 ? ConsoleColors.RED_BOLD_BRIGHT + "Sold out" + ConsoleColors.RESET : currency.format(product.getProductPrice()) + " | " + "Items remaining: " + quantity) + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.YELLOW + product.getSlotLocation() + " | " + product.getProductName() + " | " + (quantity == 0 ? ConsoleColors.RED_BOLD_BRIGHT + "Sold out" + ConsoleColors.RESET : currency.format(product.getProductPrice()) + " | " + "Quantity: " + quantity) + ConsoleColors.RESET);
         }
         printUnderline(50);
     }
@@ -61,8 +61,8 @@ public class UserInterface {
     }
 
     public String promptUser(String message) {
-        System.out.println(ConsoleColors.CYAN + message + ConsoleColors.RESET);
-        printUnderline(50);
+        System.out.print(ConsoleColors.CYAN + message + ConsoleColors.RESET);
+//        printUnderline(50);
         return scanner.nextLine();
     }
 

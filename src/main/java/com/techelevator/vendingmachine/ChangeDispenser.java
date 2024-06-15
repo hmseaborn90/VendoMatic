@@ -6,6 +6,8 @@ import com.techelevator.util.Logger;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import static com.techelevator.Application.currency;
+
 public class ChangeDispenser {
 
     private static final double QUARTER = 0.25;
@@ -28,12 +30,12 @@ public class ChangeDispenser {
         changeReturned += nickelCount * NICKEL;
 
 
-        NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+//        NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
         changeReturned = Math.round(balance * 100) / 100.0;
 
-        Logger.log("GIVE CHANGE: $" + changeReturned + " $" + balance);
+        Logger.log("GIVE CHANGE: " + currency.format(changeReturned) + " " + currency.format(balance));
 
-        return ConsoleColors.GREEN + "      Change returned: " + moneyFormat.format(changeReturned) + "\n" +
+        return ConsoleColors.GREEN + "      Change returned: " + currency.format(changeReturned) + "\n" +
                 "      Quarters: " + quarterCount + "\n" +
                 "      Dimes: " + dimeCount + "\n" +
                 "      Nickels: " + nickelCount + ConsoleColors.RESET;

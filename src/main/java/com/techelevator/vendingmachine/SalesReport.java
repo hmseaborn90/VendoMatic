@@ -1,5 +1,7 @@
 package com.techelevator.vendingmachine;
 
+import com.techelevator.util.ConsoleColors;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +18,9 @@ public class SalesReport {
 
     public void getSalesReport(){
         for(Map.Entry<String, Integer> entry : productsSold.entrySet()){
-            System.out.println("Product name "+entry.getKey() + " | " + "Quantity: " + entry.getValue());
+            System.out.println(ConsoleColors.YELLOW + "Product name "+entry.getKey() + " | " + "Quantity: " + entry.getValue() + ConsoleColors.RESET);
         }
-        System.out.println("***TOTAL SALES***" + " | " +currency.format(totalSales));
+        System.out.println(ConsoleColors.GREEN + "     ***TOTAL SALES***" + " | " +currency.format(totalSales) + ConsoleColors.RESET);
     }
 
     public Map<String, Integer> getProductsSold() {

@@ -61,11 +61,11 @@ public class PurchaseManager {
                 currency.format(product.getProductPrice()));
 
 
-        System.out.println(ConsoleColors.GREEN + "Balance: " + balanceRemaining + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.GREEN + "Balance Remaining: " + balanceRemaining + ConsoleColors.RESET);
         System.out.println(ConsoleColors.BLUE + "Name: " +
-                product.getProductName() +
-                " Price: " +
-                currency.format(product.getProductPrice()) + " " + product + ConsoleColors.RESET);
+                product.getProductName() + " | " +
+                "Price: " +
+                currency.format(product.getProductPrice()) + " | " + product + ConsoleColors.RESET);
         Logger.log(logMessage + " " + balanceRemaining);
         return updatedBalance;
     }

@@ -37,12 +37,12 @@ public class ProductInventory {
                     throw new NumberFormatException("Invalid product price for " + productName + e.getMessage());
                 } catch (InvalidProductTypeException e) {
                     System.err.println(e.getMessage());
-//                    throw new InvalidProductTypeException("incorrect product type found " + e.getMessage());
+
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new FileNotFoundException(e.getMessage());
-//            System.err.println("The file was not found " + csvFile.getAbsolutePath());
+//            throw new FileNotFoundException(e.getMessage());
+            System.err.println("The file was not found " + csvFile.getAbsolutePath());
         }
     }
 
