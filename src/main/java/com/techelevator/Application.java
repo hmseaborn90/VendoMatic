@@ -1,8 +1,10 @@
 package com.techelevator;
 
+import com.techelevator.exceptions.InvalidProductTypeException;
 import com.techelevator.util.Logger;
 import com.techelevator.vendingmachine.VendingMachine;
 
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Scanner;
@@ -16,6 +18,12 @@ public class Application {
         Logger.log("Vending Machine Starting up");
         VendingMachine vendingMachine = new VendingMachine(scanner);
 
+        try {
+            vendingMachine.loadInventory("vendingmachine.csv");
+        } catch (FileNotFoundException | InvalidProductTypeException e) {
+            vendingMachine.displayErrorMsg(e.getMessage());
+
+        }
         boolean isShouldExit = false;
 
         while (!isShouldExit) {
@@ -24,11 +32,10 @@ public class Application {
 
             switch (userChoice) {
                 case "1":
-                    vendingMachine.displayMessage("will display inventory items here");
+                    vendingMachine.displayInventory();
                     break;
                 case "2":
                     handlePurchaseMenu(vendingMachine);
-                    vendingMachine.displayMessage("handle the purchasing of items here");
                     break;
                 case "3":
                     vendingMachine.displayMessage("display message that your exiting vending machine application");
@@ -49,17 +56,17 @@ public class Application {
         boolean isFinished = false;
 
         while (!isFinished) {
-            //TODO display inventory
-            vendingMachine.displayMessage("display inventory");
+
+            vendingMachine.displayInventory();
             String purchaseMenuChoice = vendingMachine.displayPurchaseMenu();
             switch (purchaseMenuChoice) {
                 case "1":
-                    //TODO
                     handleMoneyInput(vendingMachine);
                     break;
                 case "2":
                     //TODO
-                    vendingMachine.displayMessage("handle purchasing of product feature to come!");
+                    String productSlot = vendingMachine.promptUser("Please choose slot location");
+                    vendingMachine.purchaseProduct(productSlot.toUpperCase());
                     break;
                 case "3":
                     //TODO
@@ -90,6 +97,7 @@ public class Application {
                 String logMessage = String.format("Feed Money: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
                 Logger.log(logMessage);
             } catch (NumberFormatException e) {
+//                throw new NumberFormatException("Invalid input please insert dollar amount");
                 vendingMachine.displayErrorMsg("Invalid input please insert dollar amount");
                 continue;
             }

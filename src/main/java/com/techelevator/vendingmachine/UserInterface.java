@@ -4,7 +4,10 @@ package com.techelevator.vendingmachine;
 import com.techelevator.util.ConsoleColors;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static com.techelevator.Application.currency;
 
@@ -14,6 +17,19 @@ public class UserInterface {
     public UserInterface(Scanner scanner) {
         this.scanner = scanner;
     }
+
+    public void displayInvetory(Map<Product, Integer> products){
+        TreeMap<Product, Integer> sortedProducts = new TreeMap<>(Comparator.comparing(Product::getSlotLocation));
+        sortedProducts.putAll(products);
+
+        for(Map.Entry<Product, Integer> entry : sortedProducts.entrySet()){
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            System.out.println(ConsoleColors.YELLOW + product.getSlotLocation() + " | " + product.getProductName() + " | " + (quantity == 0 ? ConsoleColors.RED_BOLD_BRIGHT + "Sold out" + ConsoleColors.RESET : currency.format(product.getProductPrice()) + " | " + "Items remaining: " + quantity) + ConsoleColors.RESET);
+        }
+        printUnderline(50);
+    }
+
 
     public String displayMainMenu() {
         System.out.println(ConsoleColors.BLUE + "     (1) Display Vending Machine Items");
@@ -33,7 +49,7 @@ public class UserInterface {
     }
 
     public void displayCurrentBalance(double balance) {
-        System.out.println(ConsoleColors.GREEN + "\n     Current Balance: " + currency.format(balance) + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.GREEN + "     Current Balance: " + currency.format(balance) + ConsoleColors.RESET);
     }
 
     public void displayMessage(String message) {
@@ -46,6 +62,7 @@ public class UserInterface {
 
     public String promptUser(String message) {
         System.out.println(ConsoleColors.CYAN + message + ConsoleColors.RESET);
+        printUnderline(50);
         return scanner.nextLine();
     }
 

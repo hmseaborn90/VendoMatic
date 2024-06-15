@@ -54,3 +54,48 @@
 2024/06/14 16:43:06 Feed Money: $10.00 $10.00
 2024/06/14 16:43:21 GIVE CHANGE: $10.0 $10.0
 2024/06/14 16:44:14 Vending Machine Starting up
+2024/06/14 16:58:09 Vending Machine Starting up
+2024/06/14 16:58:26 GIVE CHANGE: $0.0 $0.0
+2024/06/14 19:05:42 Vending Machine Starting up
+2024/06/14 19:17:47 Vending Machine Starting up
+2024/06/14 19:18:10 Vending Machine Starting up
+2024/06/14 19:18:45 Feed Money: $10.00 $10.00
+2024/06/14 19:40:09 Vending Machine Starting up
+2024/06/14 19:41:05 Vending Machine Starting up
+2024/06/14 19:41:15 Feed Money: $19.00 $19.00
+2024/06/14 19:42:51 Vending Machine Starting up
+2024/06/14 19:42:56 Feed Money: $10.00 $10.00
+2024/06/14 19:43:05 Triplemint D4 $0.75 $9.25
+2024/06/14 19:44:51 Vending Machine Starting up
+2024/06/14 19:48:44 Vending Machine Starting up
+2024/06/14 19:49:00 Vending Machine Starting up
+2024/06/14 19:50:45 Vending Machine Starting up
+2024/06/14 20:15:06 Vending Machine Starting up
+2024/06/14 20:16:53 Vending Machine Starting up
+2024/06/14 20:17:07 Feed Money: $12.00 $12.00
+2024/06/14 20:17:28 Vending Machine Starting up
+2024/06/14 20:17:47 Feed Money: $10.00 $10.00
+2024/06/14 20:18:24 Vending Machine Starting up
+2024/06/14 20:18:58 Vending Machine Starting up
+2024/06/14 20:19:58 Vending Machine Starting up
+2024/06/14 20:20:06 Feed Money: $10.00 $10.00
+2024/06/14 20:20:13 U-Chews D1 $0.85 $9.15
+2024/06/14 20:20:16 U-Chews D1 $0.85 $8.30
+2024/06/14 20:20:19 U-Chews D1 $0.85 $7.45
+2024/06/14 20:20:22 U-Chews D1 $0.85 $6.60
+2024/06/14 20:20:25 U-Chews D1 $0.85 $5.75
+2024/06/14 20:22:24 Little League Chew D2 $0.95 $4.80
+2024/06/14 20:22:37 Little League Chew D2 $0.95 $3.85
+2024/06/14 20:22:41 Little League Chew D2 $0.95 $2.90
+2024/06/14 20:22:54 Little League Chew D2 $0.95 $1.95
+2024/06/14 20:22:57 Little League Chew D2 $0.95 $1.00
+2024/06/14 20:23:00 GIVE CHANGE: $1.0 $1.0000000000000013
+2024/06/14 20:24:12 Vending Machine Starting up
+2024/06/14 20:24:24 Vending Machine Starting up
+2024/06/14 20:31:10 Vending Machine Starting up
+2024/06/14 20:40:30 Vending Machine Starting up
+2024/06/14 20:43:00 Vending Machine Starting up
+2024/06/14 20:43:17 Vending Machine Starting up
+2024/06/14 20:43:28 Vending Machine Starting up
+2024/06/14 20:45:09 Vending Machine Starting up
+2024/06/14 20:45:30 Vending Machine Starting up

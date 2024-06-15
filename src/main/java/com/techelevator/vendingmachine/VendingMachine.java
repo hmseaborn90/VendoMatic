@@ -1,6 +1,9 @@
 package com.techelevator.vendingmachine;
 
-import java.math.BigDecimal;
+import com.techelevator.exceptions.InvalidProductTypeException;
+
+import java.io.FileNotFoundException;
+
 import java.util.Scanner;
 
 public class VendingMachine {
@@ -10,6 +13,8 @@ public class VendingMachine {
     private UserInterface ui;
     private SalesReport salesReport;
     private ChangeDispenser changeDispenser;
+    private ProductInventory productInventory;
+    private PurchaseManager purchaseManager;
 
     //CONSTRUCTOR
     //TODO Create and add new instances to constructor
@@ -17,8 +22,20 @@ public class VendingMachine {
         this.ui = new UserInterface(scanner);
         this.salesReport = new SalesReport(); // TODO Sales report will need to be passed to the purchase manager in order to add product to salesReport upon succesful purchase
         this.changeDispenser = new ChangeDispenser();
+        this.productInventory = new ProductInventory();
+        this.purchaseManager = new PurchaseManager(salesReport);
     }
 
+
+    //PRODUCT INVENTORY METHOD DELEGATIONS
+
+    public void loadInventory(String filePath) throws FileNotFoundException, InvalidProductTypeException {
+        productInventory.loadInventoryFromFile(filePath);
+    }
+
+    public void displayInventory(){
+        ui.displayInvetory(productInventory.getProducts());
+    }
 
     //SALES REPORT METHOD DELEGATION
     public void getSalesReport(){
@@ -48,6 +65,13 @@ public class VendingMachine {
     }
 
     //BALANCE ALTERING METHODS
+
+    public void purchaseProduct(String slotLocation) {
+        Product product = productInventory.getProductBySlot(slotLocation);
+        double updatedBalance = purchaseManager.purchaseProduct(product, balance, productInventory);
+        setBalance(updatedBalance);
+        ui.printUnderline(50);
+    }
     public void feedMoney(double amountFed) {
         balance += amountFed;
         ui.printUnderline(50);
@@ -55,6 +79,10 @@ public class VendingMachine {
     public double getBalance() {
         return balance;
     }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
 
     public void giveChange() {
         displayMessage(changeDispenser.giveChange(balance));
