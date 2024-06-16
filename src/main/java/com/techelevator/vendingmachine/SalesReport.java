@@ -18,7 +18,7 @@ public class SalesReport {
 
     public void getSalesReport(){
         for(Map.Entry<String, Integer> entry : productsSold.entrySet()){
-            System.out.println(ConsoleColors.YELLOW + "Product name "+entry.getKey() + " | " + "Quantity: " + entry.getValue() + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.YELLOW + "Product name: "+entry.getKey() + " | " + "Quantity: " + entry.getValue() + ConsoleColors.RESET);
         }
         System.out.println(ConsoleColors.GREEN + "     ***TOTAL SALES***" + " | " +currency.format(totalSales) + ConsoleColors.RESET);
     }

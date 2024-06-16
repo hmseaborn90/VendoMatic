@@ -16,13 +16,13 @@ public class Logger {
         File logs = new File("logs");
         logs.mkdir();
         LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
         if (logWriter == null) {
             try {
                 String destinationPath = "logs/";
                 logWriter = new PrintWriter(new FileWriter(destinationPath + "log.txt", true));
             } catch (IOException e) {
-                throw new LoggerException("error writing to log file" + e.getMessage());
+                throw new LoggerException("Error writing to log file." + e.getMessage());
             }
         }
         logWriter.println(date.format(formatter) + " " + message);

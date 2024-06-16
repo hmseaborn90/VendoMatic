@@ -213,6 +213,27 @@
 2024/06/14 22:45:54 GIVE CHANGE: $9.15 $9.15
 2024/06/14 22:48:07 GIVE CHANGE: $9.15 $9.15
 2024/06/14 22:58:51 GIVE CHANGE: $9.15 $9.15
+2024/06/16 18:24:38 Vending Machine Starting up
+2024/06/16 18:30:32 Vending Machine Starting up
+2024/06/16 18:32:21 GIVE CHANGE: $0.00 $0.00
+2024/06/16 18:32:28 Vending Machine Starting up
+2024/06/16 18:32:45 Feed Money: $10.00 $10.00
+2024/06/16 18:33:20 Feed Money: $5.00 $15.00
+2024/06/16 18:33:51 Cola C1 $1.25 $13.75
+2024/06/16 18:34:24 Vending Machine Starting up
+2024/06/16 18:35:30 Vending Machine Starting up
+2024/06/16 18:37:23 Vending Machine Starting up
+2024/06/16 18:37:58 Feed Money: $10.00 $10.00
+2024/06/16 18:38:19 Potato Crisps A1 $3.05 $6.95
+2024/06/16 18:38:33 GIVE CHANGE: $6.95 $6.95
+2024/06/16 18:42:17 Vending Machine Starting up
+2024/06/16 18:42:40 Feed Money: $50.00 $50.00
+2024/06/16 18:42:49 Chiclets D3 $0.75 $49.25
+2024/06/16 18:42:56 GIVE CHANGE: $49.25 $49.25
+2024/06/16 18:43:52 GIVE CHANGE: $0.00 $0.00
+2024/06/16 18:43:59 Feed Money: $50.00 $50.00
+2024/06/16 18:44:04 Cloud Popcorn A4 $3.65 $46.35
+2024/06/16 18:44:26 GIVE CHANGE: $46.35 $46.35
 2024/06/14 23:04:31 Vending Machine Starting up
 2024/06/14 23:05:01 Feed Money: $10.00 $10.00
 2024/06/14 23:05:05 Mountain Melter C3 $1.50 $8.50
@@ -239,3 +260,57 @@
 2024/06/15 19:50:29 Vending Machine Starting up
 2024/06/15 19:51:57 Vending Machine Starting up
 2024/06/15 19:52:30 Vending Machine Starting up
+2024/06/16 18:53:19 Vending Machine Starting up
+2024/06/16 18:58:43 Vending Machine Starting up
+2024/06/16 18:58:50 Feed Money: $100.00 $100.00
+2024/06/16 18:59:01 Potato Crisps A1 $3.05 $96.95
+2024/06/16 18:59:22 Potato Crisps A1 $3.05 $93.90
+2024/06/16 18:59:34 Stackers A2 $1.45 $92.45
+2024/06/16 18:59:46 GIVE CHANGE: $92.45 $92.45
+2024/06/16 19:00:10 Vending Machine Starting up
+2024/06/16 19:01:55 Vending Machine Starting up
+2024/06/16 19:02:03 Feed Money: $20.00 $20.00
+2024/06/16 19:02:16 Potato Crisps A1 $3.05 $16.95
+2024/06/16 19:02:35 Stackers A2 $1.45 $15.50
+2024/06/16 19:02:46 GIVE CHANGE: $15.50 $15.50
+2024/06/16 19:03:01 Feed Money: $20.00 $20.00
+2024/06/16 19:03:07 Cloud Popcorn A4 $3.65 $16.35
+2024/06/16 19:03:13 Wonka Bar B3 $1.50 $14.85
+2024/06/16 19:03:18 GIVE CHANGE: $14.85 $14.85
+2024/06/16 19:06:09 Vending Machine Starting up
+2024/06/16 19:07:13 Vending Machine Starting up
+2024/06/16 19:09:42 Vending Machine Starting up
+2024/06/16 19:10:08 Feed Money: $20.00 $20.00
+2024/06/16 19:10:17 U-Chews D1 $0.85 $19.15
+2024/06/16 19:10:28 Wonka Bar B3 $1.50 $17.65
+2024/06/16 19:10:31 GIVE CHANGE: $17.65 $17.65
+2024/06/16 19:10:51 Vending Machine Starting up
+2024/06/16 19:11:14 Feed Money: $100.00 $100.00
+2024/06/16 19:11:38 Triplemint D4 $0.75 $99.25
+2024/06/16 19:11:40 Triplemint D4 $0.75 $98.50
+2024/06/16 19:11:41 Triplemint D4 $0.75 $97.75
+2024/06/16 19:11:43 Triplemint D4 $0.75 $97.00
+2024/06/16 19:11:47 Triplemint D4 $0.75 $96.25
+2024/06/16 19:12:01 GIVE CHANGE: $96.25 $96.25
+2024/06/16 19:13:16 Vending Machine Starting up
+2024/06/16 19:13:20 Feed Money: $100.00 $100.00
+2024/06/16 19:13:26 Triplemint D4 $0.75 $99.25
+2024/06/16 19:13:29 Triplemint D4 $0.75 $98.50
+2024/06/16 19:13:31 Triplemint D4 $0.75 $97.75
+2024/06/16 19:13:33 Triplemint D4 $0.75 $97.00
+2024/06/16 19:13:35 Triplemint D4 $0.75 $96.25
+2024/06/16 19:13:47 GIVE CHANGE: $96.25 $96.25
+2024/06/16 19:14:39 Vending Machine Starting up
+2024/06/16 19:25:46 Vending Machine Starting up
+2024/06/16 19:25:54 Feed Money: $10.00 $10.00
+2024/06/16 19:25:57 GIVE CHANGE: $10.00 $0.00
+2024/06/16 19:26:22 Feed Money: $5.00 $5.00
+2024/06/16 19:26:29 U-Chews D1 $0.85 $4.15
+2024/06/16 19:26:43 GIVE CHANGE: $4.15 $0.00
+2024/06/16 19:28:50 Vending Machine Starting up
+2024/06/16 19:28:55 FEED MONEY: $5.00 $5.00
+2024/06/16 19:28:59 FEED MONEY: $5.00 $10.00
+2024/06/16 19:29:02 GIVE CHANGE: $10.00 $0.00
+06/16/2024 19:31:42 Vending Machine Starting up
+06/16/2024 07:35:29 Vendo-Matic 800 started.
+06/16/2024 07:36:50 PM Vendo-Matic 800 started.

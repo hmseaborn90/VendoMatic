@@ -15,7 +15,7 @@ public class Application {
     public static NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     public static void main(String[] args) {
-        Logger.log("Vending Machine Starting up");
+        Logger.log("Vendo-Matic 800 started.");
         VendingMachine vendingMachine = new VendingMachine(scanner);
 
         try {
@@ -38,14 +38,14 @@ public class Application {
                     handlePurchaseMenu(vendingMachine);
                     break;
                 case "3":
-                    vendingMachine.displayMessage("Thank you for using our vending machine goodbye \uD83D\uDC4B ");
-                    // set boolean to true to exit the loop and exit the program may be a better way to handle exiting program
+                    vendingMachine.displayMessage("Thank you for choosing Vendo-Matic. Goodbye! \uD83D\uDC4B ");
                     isShouldExit = true;
                     break;
                 case "4":
                     vendingMachine.getSalesReport();
+                    break;
                 default:
-                    vendingMachine.displayErrorMsg("invalid Selection please try again");// maybe some error handling that could be done
+                    vendingMachine.displayErrorMsg("Invalid Selection. Please try again.");// maybe some error handling that could be done
             }
         }
         scanner.close();
@@ -73,7 +73,7 @@ public class Application {
                     isFinished = true;
                     break;
                 default:
-                    vendingMachine.displayMessage("Invalid choice please try again proper error handling to come");
+                    vendingMachine.displayErrorMsg("Invalid Selection. Please try again.");
                     break;
             }
         }
@@ -83,7 +83,7 @@ public class Application {
     private static void handleMoneyInput(VendingMachine vendingMachine) {
         while (true) {
             try {
-                String userInput = vendingMachine.promptUser("Enter the amount of money to feed: ");
+                String userInput = vendingMachine.promptUser("Enter the amount of money to add: ");
                 int amount = Integer.parseInt(userInput);
 
                 if (isValidAmount(amount)) {
@@ -91,19 +91,19 @@ public class Application {
                     vendingMachine.displayCurrentBalance();
                     vendingMachine.printUnderline(50);
 
-                    String logMessage = String.format("Feed Money: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
+                    String logMessage = String.format("FEED MONEY: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
                     Logger.log(logMessage);
                 } else {
-                    vendingMachine.displayErrorMsg("\n" + "Sorry, we can only accept valid US currency not sure where you got that " + amount + " dollar bill from but it is probably fake Please insert valid US currency");
+                    vendingMachine.displayErrorMsg("\n" + "Sorry, we can only accept valid US currency. A " + amount + " dollar bill does not exist. Please insert valid US currency.");
                     continue;
                 }
 
             } catch (NumberFormatException e) {
-                vendingMachine.displayErrorMsg("Invalid input sorry we only accept bills at this time insert a valid whole dollar amount.");
+                vendingMachine.displayErrorMsg("Invalid input. Sorry, we only accept bills at this time. Please insert a valid whole dollar amount.");
                 continue;
             }
 
-            String moreMoneyChoice = vendingMachine.promptUser("Do you want to add more money? (Y/N): ");
+            String moreMoneyChoice = vendingMachine.promptUser("Do you wish to add more money? (Y/N): ");
             if (!moreMoneyChoice.equalsIgnoreCase("Y")) {
                 vendingMachine.printUnderline(50);
                 break;
