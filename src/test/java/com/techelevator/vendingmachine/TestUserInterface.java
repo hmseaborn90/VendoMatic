@@ -1,5 +1,6 @@
 package com.techelevator.vendingmachine;
 
+import com.techelevator.util.ConsoleColors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import static com.techelevator.Application.currency;
+
 public class TestUserInterface {
     private UserInterface ui;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -17,21 +20,24 @@ public class TestUserInterface {
     private final InputStream originalIn = System.in;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         System.setOut(new PrintStream(outContent));
     }
 
     @Test
-    public void testDisplayMainMenu(){
+    public void testDisplayMainMenu() {
         //Arrange
         String input = "1";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);
         ui = new UserInterface(scanner);
-        String expected = "(1) Display Vending Machine Items\n" +
-                "(2) Purchase\n" +
-                "(3) Exit\n";
-
+        String expected = ConsoleColors.BLUE
+                + "     (1) Display Vending Machine Items\n"
+                + "     (2) Purchase\n" +
+                ConsoleColors.RED
+                + "     (3) Exit"
+                + ConsoleColors.RESET + "\n" +
+                ConsoleColors.WHITE_UNDERLINED + " ".repeat(50) + ConsoleColors.RESET + "\n\n";
         //Act
         String choice = ui.displayMainMenu();
         //Assert
@@ -53,9 +59,22 @@ public class TestUserInterface {
         // Act
         String choice = ui.displayPurchaseMenu(balance);
 
+
+        String expected = ConsoleColors.GREEN +
+                "     Current Balance: $10.00" +
+                ConsoleColors.RESET + "\n" +
+                ConsoleColors.BLUE +
+                "     (1) Feed Money\n" +
+                "     (2) Select Product" + ConsoleColors.RESET + "\n" +
+                ConsoleColors.RED +
+                "     (3) Finish Transaction" +
+                ConsoleColors.RESET + "\n" +
+                ConsoleColors.WHITE_UNDERLINED + " ".repeat(50) + ConsoleColors.RESET + "\n\n";
+
+        // Act
         // Assert
         Assert.assertEquals("2", choice.trim());
-        Assert.assertEquals("\nCurrent Balance: $10.00\n(1) Feed Money\n(2) Select Product\n(3) Finish Transaction\n", outContent.toString().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n"));
+        Assert.assertEquals(expected, outContent.toString().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n"));
     }
 
     @Test
@@ -66,8 +85,11 @@ public class TestUserInterface {
 
         // Act
         ui.displayCurrentBalance(balance);
+        String expected = ConsoleColors.GREEN +
+                "     Current Balance: $10.00" +
+                ConsoleColors.RESET + "\n";
 
         // Assert
-        Assert.assertEquals("\nCurrent Balance: $10.00\n", outContent.toString().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n"));
+        Assert.assertEquals(expected, outContent.toString().replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n"));
     }
 }
