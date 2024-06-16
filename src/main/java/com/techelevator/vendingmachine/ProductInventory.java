@@ -18,7 +18,7 @@ public class ProductInventory {
         this.products = new HashMap<>();
     }
 
-    public void loadInventoryFromFile(String filePath) throws FileNotFoundException, InvalidProductTypeException {
+    public void loadInventoryFromFile(String filePath) {
         File csvFile = new File(filePath);
         try (Scanner fileInput = new Scanner(csvFile)) {
             while (fileInput.hasNextLine()) {
@@ -41,7 +41,6 @@ public class ProductInventory {
                 }
             }
         } catch (FileNotFoundException e) {
-//            throw new FileNotFoundException(e.getMessage());
             System.err.println("The file was not found " + csvFile.getAbsolutePath());
         }
     }
@@ -60,6 +59,7 @@ public class ProductInventory {
                 throw new InvalidProductTypeException("Invalid product type: " + productType);
         }
     }
+
     public Product getProductBySlot(String slotLocation) {
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             Product product = entry.getKey();

@@ -18,11 +18,11 @@ public class UserInterface {
         this.scanner = scanner;
     }
 
-    public void displayInvetory(Map<Product, Integer> products){
+    public void displayInvetory(Map<Product, Integer> products) {
         TreeMap<Product, Integer> sortedProducts = new TreeMap<>(Comparator.comparing(Product::getSlotLocation));
         sortedProducts.putAll(products);
 
-        for(Map.Entry<Product, Integer> entry : sortedProducts.entrySet()){
+        for (Map.Entry<Product, Integer> entry : sortedProducts.entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
             System.out.println(ConsoleColors.YELLOW + product.getSlotLocation() + " | " + product.getProductName() + " | " + (quantity == 0 ? ConsoleColors.RED_BOLD_BRIGHT + "Sold out" + ConsoleColors.RESET : currency.format(product.getProductPrice()) + " | " + "Quantity: " + quantity) + ConsoleColors.RESET);
@@ -54,15 +54,16 @@ public class UserInterface {
 
     public void displayMessage(String message) {
         System.out.println(ConsoleColors.CYAN + message + ConsoleColors.RESET);
+        printUnderline(50);
     }
 
     public void displayError(String message) {
         System.err.println(ConsoleColors.RED_BOLD_BRIGHT + message + ConsoleColors.RESET);
+        printUnderline(50);
     }
 
     public String promptUser(String message) {
         System.out.print(ConsoleColors.CYAN + message + ConsoleColors.RESET);
-//        printUnderline(50);
         return scanner.nextLine();
     }
 
@@ -70,4 +71,5 @@ public class UserInterface {
         System.out.println(ConsoleColors.WHITE_UNDERLINED + " ".repeat(length) + ConsoleColors.RESET);
         System.out.println();
     }
+
 }

@@ -38,7 +38,7 @@ public class Application {
                     handlePurchaseMenu(vendingMachine);
                     break;
                 case "3":
-                    vendingMachine.displayMessage("display message that your exiting vending machine application");
+                    vendingMachine.displayMessage("Thank you for using our vending machine goodbye \uD83D\uDC4B ");
                     // set boolean to true to exit the loop and exit the program may be a better way to handle exiting program
                     isShouldExit = true;
                     break;
@@ -89,6 +89,7 @@ public class Application {
                 if (isValidAmount(amount)) {
                     vendingMachine.feedMoney(amount);
                     vendingMachine.displayCurrentBalance();
+                    vendingMachine.printUnderline(50);
 
                     String logMessage = String.format("Feed Money: %s %s", currency.format(amount), currency.format(vendingMachine.getBalance()));
                     Logger.log(logMessage);
@@ -104,12 +105,13 @@ public class Application {
 
             String moreMoneyChoice = vendingMachine.promptUser("Do you want to add more money? (Y/N): ");
             if (!moreMoneyChoice.equalsIgnoreCase("Y")) {
+                vendingMachine.printUnderline(50);
                 break;
             }
         }
     }
 
     private static boolean isValidAmount(int amount) {
-        return amount == 1 || amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100;
+        return amount == 1 || amount == 2 || amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100;
     }
 }
