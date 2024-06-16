@@ -50,7 +50,7 @@ public class PurchaseManager {
 
     public double performPurchase(Product product, double balance, ProductInventory productInventory) {
         int quantity = productInventory.getProducts().getOrDefault(product, 0);
-        double updatedBalance = balance-product.getProductPrice();
+        double updatedBalance = balance - product.getProductPrice();
 
         productInventory.getProducts().put(product, quantity - 1);
         salesReport.addToSalesReport(product.getProductName(), product.getProductPrice());

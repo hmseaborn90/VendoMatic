@@ -54,6 +54,9 @@ public class VendingMachine {
 
     }
 
+    public void printUnderline(int length){
+        ui.printUnderline(length);
+    }
     public void displayCurrentBalance() {
         ui.displayCurrentBalance(balance);
     }

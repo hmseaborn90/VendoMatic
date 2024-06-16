@@ -30,7 +30,6 @@ public class ChangeDispenser {
         changeReturned += nickelCount * NICKEL;
 
 
-//        NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
         changeReturned = Math.round(balance * 100) / 100.0;
 
         Logger.log("GIVE CHANGE: " + currency.format(changeReturned) + " " + currency.format(balance));
