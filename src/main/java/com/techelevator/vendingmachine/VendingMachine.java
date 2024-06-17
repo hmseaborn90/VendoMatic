@@ -39,7 +39,7 @@ public class VendingMachine {
 
     //SALES REPORT METHOD DELEGATION
     public void getSalesReport(){
-        salesReport.getSalesReport();
+        salesReport.getSalesReport(productInventory);
         ui.printUnderline(50);
     }
     //UI METHOD DELEGATIONS
