@@ -38,7 +38,7 @@ public class SalesReport {
             System.out.println(ConsoleColors.YELLOW + "Product name: "+entry.getKey() + " | " + "Quantity: " + entry.getValue() + ConsoleColors.RESET);
         }
         System.out.println(ConsoleColors.GREEN + "     ***TOTAL SALES***" + " | " +currency.format(totalSales));
-        System.out.println("See full report file at: " + reportFileName + ConsoleColors.RESET);
+        System.out.println("Report file saved at: " + reportFileName + ConsoleColors.RESET);
     }
 
     public Map<String, Integer> getProductsSold() {
