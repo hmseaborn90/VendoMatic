@@ -22,7 +22,7 @@ public class Logger {
                 String destinationPath = "logs/";
                 logWriter = new PrintWriter(new FileWriter(destinationPath + "log.txt", true));
             } catch (IOException e) {
-                throw new LoggerException("Error writing to log file." + e.getMessage());
+                throw new LoggerException("Error writing to log file. " + e.getMessage());
             }
         }
         logWriter.println(date.format(formatter) + " " + message);

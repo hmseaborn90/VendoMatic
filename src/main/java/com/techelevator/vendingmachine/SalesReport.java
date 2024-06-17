@@ -2,6 +2,9 @@ package com.techelevator.vendingmachine;
 
 import com.techelevator.util.ConsoleColors;
 
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,10 +20,25 @@ public class SalesReport {
     }
 
     public void getSalesReport(){
+        File salesReports = new File("salesreports");
+        salesReports.mkdir();
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy_HHmmss");
+        String reportFileName = "salesreports/SP_" + date.format(formatter) + ".txt";
+        try(PrintWriter salesOutput = new PrintWriter(new FileWriter(reportFileName))) {
+            for(Map.Entry<String, Integer> entry : productsSold.entrySet()) {
+                salesOutput.println(entry.getKey() + "|" + entry.getValue());
+            }
+            salesOutput.println("**TOTAL SALES** " + currency.format(totalSales));
+        } catch (IOException e) {
+            System.err.println("Cannot open file for writing. " + e.getMessage());
+        }
+
         for(Map.Entry<String, Integer> entry : productsSold.entrySet()){
             System.out.println(ConsoleColors.YELLOW + "Product name: "+entry.getKey() + " | " + "Quantity: " + entry.getValue() + ConsoleColors.RESET);
         }
-        System.out.println(ConsoleColors.GREEN + "     ***TOTAL SALES***" + " | " +currency.format(totalSales) + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.GREEN + "     ***TOTAL SALES***" + " | " +currency.format(totalSales));
+        System.out.println("See full report file at: " + reportFileName + ConsoleColors.RESET);
     }
 
     public Map<String, Integer> getProductsSold() {
