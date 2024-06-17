@@ -32,7 +32,7 @@ public class ChangeDispenser {
 
         changeReturned = Math.round(balance * 100) / 100.0;
 
-        Logger.log("GIVE CHANGE: " + currency.format(changeReturned) + " " + currency.format(balance));
+        Logger.log("GIVE CHANGE: " + currency.format(changeReturned) + " " + currency.format(balance-changeReturned));
 
         return ConsoleColors.GREEN + "      Change returned: " + currency.format(changeReturned) + "\n" +
                 "      Quarters: " + quarterCount + "\n" +
