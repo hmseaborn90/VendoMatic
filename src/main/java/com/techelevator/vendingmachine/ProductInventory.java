@@ -18,12 +18,18 @@ public class ProductInventory {
         this.products = new HashMap<>();
     }
 
+
+    /*
+    Load Inventory from file method handles reading the file that is passed in as a parameter
+    Parsing every line of the file which contains an item to be added to the inventory
+    utilizes helper method below CreateProduct to create each product and add it to the products Map
+     */
     public void loadInventoryFromFile(String filePath) {
         File csvFile = new File(filePath);
         try (Scanner fileInput = new Scanner(csvFile)) {
             while (fileInput.hasNextLine()) {
 
-                String[] productData = fileInput.nextLine().split("\\|"); //A1[0]|Potato Crisps[1]|3.05|Chip
+                String[] productData = fileInput.nextLine().split("\\|");
                 String slotNumber = productData[0];
                 String productName = productData[1];
                 double productPrice = Double.parseDouble(productData[2]);
