@@ -6,16 +6,22 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Map;
+import java.util.Optional;
+
 public class TestSalesReport {
 
     private SalesReport salesReport;
+    private ProductInventory productInventory = new ProductInventory();
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     private final PrintStream originalOut = System.out;
 
     @Before
     public void setUp(){
         salesReport = new SalesReport();
         System.setOut(new PrintStream(outContent));
+        productInventory.loadInventoryFromFile("vendingmachine.csv");
     }
 
     @After
@@ -37,21 +43,23 @@ public class TestSalesReport {
     }
 
     @Test
-    public void getSalesReportTest(){
-        String productName1 = "Candy";
-        String productName2 = "Drink";
-        double price1 = 2.00;
+    public void getSalesReportTest() {
+        String productName1 = "MoonPie";
+        String productName2 = "CowTales";
+        double price1 = 1.80;
         double price2 = 1.50;
 
         salesReport.addToSalesReport(productName1, price1);
+        salesReport.addToSalesReport(productName1, price1);
         salesReport.addToSalesReport(productName2, price2);
-        salesReport.getSalesReport();
-        String salesReportOutput = outContent.toString();
 
-        Assert.assertTrue("Expected product name not found in output",salesReportOutput.contains("Product name " + productName1));
-        Assert.assertTrue("Expected product quantity not found in output",salesReportOutput.contains("Quantity: 1"));
-        Assert.assertTrue("Expected product name not found in output",salesReportOutput.contains("Product name " + productName2));
-        Assert.assertTrue("Expected product quantity not found in output",salesReportOutput.contains("Quantity: 1"));
-        Assert.assertTrue("Expected total sales amount not found in sales report output",salesReportOutput.contains("***TOTAL SALES*** | $3.50"));
+        salesReport.getSalesReport(productInventory);
+
+        Map<String, Integer> test = salesReport.getProductsSold();
+
+        Assert.assertEquals(2, (int) test.get("MoonPie"));
+        Assert.assertEquals(1, (int) test.get("CowTales"));
+        Assert.assertEquals(2, test.size());
+
     }
 }
