@@ -64,7 +64,6 @@ public class Application {
                     handleMoneyInput(vendingMachine);
                     break;
                 case "2":
-                    //TODO
                     String productSlot = vendingMachine.promptUser("Please choose slot location: ");
                     vendingMachine.purchaseProduct(productSlot.toUpperCase());
                     break;
